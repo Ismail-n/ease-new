@@ -11,6 +11,7 @@ import DashboardPage from './components/Dashboard';
 import { BrowserRouter, Navigate, Route, Router, Routes } from 'react-router';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import PrivacyPolicies from './components/PrivacyPolicies';
 
 
 
@@ -34,6 +35,7 @@ function App() {
             ) : (
               <>
                 <Route path="/" element={<LoginPage />} />
+                <Route path="/privacy-policies" element={<PrivacyPolicies />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </>

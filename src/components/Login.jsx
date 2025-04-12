@@ -108,6 +108,7 @@ function Login() {
               {loginComponent ? <LoginPageFormFields /> : <SignupPageFormFields />}
               {/* Form end */}
             </div>
+            <p className='text-center fw-bold'>Please read our <NavLink to='/privacy-policies'>Privacy Policies</NavLink> </p>
           </div>
         </div>
       </div>
