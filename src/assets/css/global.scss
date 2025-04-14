@@ -1,0 +1,294 @@
+// ============================== Paymnent page ==============================
+.subscription-wrapper {
+    background-color: #C7D9E63D;
+    align-items: center;
+
+    .ease-logo {
+        height: 100%-80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h4 {
+        font-weight: 700;
+        color: #6FB7ED;
+    }
+
+    .subscription-info-wrapper {
+        height: 100%-20%;
+        width: 100%;
+    }
+
+    .subscription-form {
+        right: 10%;
+
+        .price-box {
+            /* light blue border */
+            padding: 8px 12px;
+            display: inline-block;
+            border-radius: 4px;
+            /* optional light background */
+        }
+
+        .price {
+            color: #6FB7ED;
+            /* blue color */
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .currency {
+            font-size: 32px;
+            margin-left: 2px;
+        }
+
+        .per {
+            font-size: 16px;
+            color: #000000;
+            font-weight: bolder;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .pricing-card {
+            width: 374px;
+            background-color: #f8fafc;
+            /* light background */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+            .pricing-header {
+                padding: 16px;
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+                color: #444;
+                margin-bottom: 8px;
+
+                .price {
+                    color: #333;
+                    font-size: 16px;
+                }
+            }
+
+            .pricing-detail {
+                span {
+                    padding: 16px;
+                    font-size: 16px;
+                    font-weight: normal;
+                    color: #343839;
+                }
+            }
+
+            .pricing-card-footer {
+                margin: auto;
+                height: 40px;
+                background-color: #E7E8EC;
+
+                .annual-plan-saving-price {
+                    padding: 10px;
+                }
+
+                p .save-price {
+                    color: #6FB7ED;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        .sub-total-amount {
+            .price {
+                color: #333;
+                font-size: 16px;
+            }
+        }
+
+        .total-amount {
+            border-top: 1px solid #DCDDE0;
+
+            .price {
+                color: #333;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+// ============================== Welcome page (Page 1) ==============================
+.welcome-message-wrapper {
+    background: #ffffff;
+    background: radial-gradient(circle at center, #ffffff 20%, #e3f2fd 60%, #bbdefb 100%);
+
+    .welcome-message {
+        width: 443px;
+        bottom: 10%;
+        // transform: translate(-50%, -50%);
+
+        .welcome-message-heading {
+            font-size: 51px;
+            font-weight: bold;
+            color: rgba(111, 183, 237, 1);
+        }
+
+        .welcome-message-title {
+            font-size: 25px;
+        }
+
+        .next-btn {
+            height: 48px;
+            width: 218px;
+            background-color: rgba(171, 219, 255, 1);
+            border-radius: 100px;
+            font-size: 20px;
+            color: white;
+        }
+    }
+
+}
+
+// ============================== Global classes ==============================
+
+.next-btn {
+    height: 48px;
+    width: 218px;
+    background-color: rgba(171, 219, 255, 1);
+    border-radius: 100px;
+    font-size: 20px;
+    color: white;
+    border: none;
+}
+
+input:not(:placeholder-shown) {
+    font-weight: bold;
+}
+
+// ============================== Global classes ==============================
+
+// ============================== Welcome page (Page 1) ==============================
+.orgnisation-form-wrapper {
+    background: radial-gradient(circle at center, #ffffff 20%, #e3f2fd 60%, #bbdefb 100%);
+
+    .orgnisation-form-container {
+        width: 775px;
+        height: 469px;
+        border-radius: 35px;
+        background-color: rgba(171, 219, 255, 0.7);
+
+    }
+
+    .orgnisation-form {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .orgnisation-form-heading h3 {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .form-control {
+            border: 1px solid rgba(85, 172, 237, 0.6) !important;
+        }
+    }
+
+}
+
+// ============================== Home page ==============================
+.nav-row {
+    z-index: 2;
+    position: relative;
+
+    .home-nav {
+        .nav-links {
+            padding-top: 10px;
+
+            a {
+                text-decoration: none;
+                color: rgba(111, 183, 237, 1);
+                font-weight: bold;
+            }
+
+            :last-child {
+                color: #333 !important;
+            }
+
+        }
+    }
+
+    .links-wrapper {
+        padding-top: 30px;
+
+        .logo {
+            // left: 30%;
+        }
+    }
+}
+
+.top-gredient {
+    height: 200px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(171, 219, 255, 1), rgba(255, 255, 255, 1));
+    top: auto;
+    z-index: 1;
+
+}
+
+.plan-picker-top {
+    z-index: 2;
+
+    .plan-picker-wrapper {
+        top: 100px;
+
+        .plan-picker-story {
+            h2 {
+                text-align: center;
+                font-size: 36px;
+                color: rgba(111, 183, 237, 1);
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+
+        .plan-picker-conatainer {
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .plan-picking-container {
+            .plan-type-wrapper {}
+            .plan-saving-title {
+                p{
+                    font-size: 24px;
+                    color: rgba(111, 183, 237, 1);
+                    span{
+                        color: rgba(146, 148, 149, 1);
+                    }
+                }
+            }            
+            .plan-card{
+                .plan-amount{
+                    p{
+                        font-size: 48px;
+                        color: #6FB7ED;
+                        .plan-currency{
+                            color: #6FB7ED;
+                            font-size: 16px;
+                        }
+                        .plan-duration{
+                            font-size: 16px;
+                            color: #000000;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -16,8 +16,8 @@
 }
 
 #authentication-form-wrapper {
-    height: calc(100vh - 30%);
-    width: calc(100% - 60%);
+    height: calc(100vh - 10%);
+    width: calc(100% - 40%);
 }
 
 .authentication-heading {
@@ -28,7 +28,6 @@
     color: #6FB7ED;
 }
 .authentication-form{
-
 }
 .authentication-form-conditional-saperators{
     display: flex;

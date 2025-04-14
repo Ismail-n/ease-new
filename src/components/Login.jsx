@@ -19,7 +19,7 @@ function Login() {
 
   const navigate = useNavigate();
   const [loginComponent, setLoginComponent] = useState(true);
-  const dispatch =useDispatch();
+  const dispatch = useDispatch();
 
   const login = useGoogleLogin({
     onSuccess: tokenResponse => {
@@ -87,36 +87,36 @@ function Login() {
 
 
   return (
-    <div className='row'>
-      <div className="col-lg-6 vh-100">
-        <div id="login-form-wrapper">
-          <div id='authentication-form-wrapper'>
-            <h1 className='authentication-heading'>{loginComponent ? "Log In " : "Sign Up"}</h1>
-            <div className="authentication-form mt-5">
-              <div className="social-logins-wrapper">
-                <div className="authentication-form-conditional-saperators">
-                  <span>continue with</span>
-                </div>
-                <button onClick={() => login()} className='btn btn-large mt-4 login-google auth-btn'><img src={google_icon} alt="" /> Sign in with Google</button>
-                <button className='btn btn-large mt-4 login-apple auth-btn'><img src={apple_icon} alt="" /> Sign in with Apple</button>
+    <>
+      <div className='row'>
+        <div className="col-lg-5 vh-100">
+          <div id="login-form-wrapper">
+            <div id='authentication-form-wrapper'>
+              <h1 className='authentication-heading'>{loginComponent ? "Log In " : "Sign Up"}</h1>
+              <div className="authentication-form mt-5">
+                <div className="social-logins-wrapper">
+                  <div className="authentication-form-conditional-saperators">
+                    <span>continue with</span>
+                  </div>
+                  <button onClick={() => login()} className='btn btn-large mt-4 login-google auth-btn'><img src={google_icon} alt="" /> Sign in with Google</button>
+                  <button className='btn btn-large mt-4 login-apple auth-btn'><img src={apple_icon} alt="" /> Sign in with Apple</button>
 
-                <div className="authentication-form-conditional-saperators mt-4">
-                  <span>or</span>
+                  <div className="authentication-form-conditional-saperators mt-4">
+                    <span>or</span>
+                  </div>
                 </div>
+                {/* Form start */}
+                {loginComponent ? <LoginPageFormFields /> : <SignupPageFormFields />}
+                {/* Form end */}
               </div>
-              {/* Form start */}
-              {loginComponent ? <LoginPageFormFields /> : <SignupPageFormFields />}
-              {/* Form end */}
+              <p className='text-center fw-bold'>Please read our <NavLink to='/privacy-policies'>Privacy Policies</NavLink> </p>
             </div>
-            <p className='text-center fw-bold'>Please read our <NavLink to='/privacy-policies'>Privacy Policies</NavLink> </p>
           </div>
         </div>
-      </div>
-      <div className="col-lg-6 vh-100 auth-form-right">
-        <img src={ease_logo} alt="" />
-      </div>
-    </div>
-
+        <div className="col-lg-7 vh-100 auth-form-right">
+          <img src={ease_logo} alt="" />
+        </div>
+      </div></>
   )
 }
 

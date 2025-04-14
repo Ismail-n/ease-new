@@ -12,6 +12,12 @@ import { BrowserRouter, Navigate, Route, Router, Routes } from 'react-router';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PrivacyPolicies from './components/PrivacyPolicies';
+import Payment from './components/Payment';
+import WelcomeMessage from './components/WelcomePages/WelcomeMessage';
+import Orgnisationform from './components/WelcomePages/Orgnisationform';
+import Homepage from './components/Homepage';
+
+
 
 
 
@@ -37,6 +43,10 @@ function App() {
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/privacy-policies" element={<PrivacyPolicies />} />
                 <Route path="/signup" element={<SignupPage />} />
+                <Route path="/subscription" element={<Payment />} />
+                <Route path="/welcome-message" element={<WelcomeMessage />} />
+                <Route path="/orgnisation-registration" element={<Orgnisationform />} />
+                <Route path="/homepage" element={<Homepage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </>
             )}
