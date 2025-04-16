@@ -167,6 +167,9 @@ input:not(:placeholder-shown) {
 
 .text-ease {
     color: rgba(111, 183, 237, 1);
+    // font-size: calc();
+    font-size: clamp(20px ,35vw , 36px);
+
 }
 
 // ============================== Global classes ==============================
@@ -357,6 +360,8 @@ input:not(:placeholder-shown) {
 
     :first-child {
         font-size: 40px;
+        font-size: clamp(20px ,5vh, 40px);
+
     }
 
     :last-child {

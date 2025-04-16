@@ -10,11 +10,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLogin } from '../features/counter/CounterSlice'
 import { jwtDecode } from 'jwt-decode'
 
-
-
-
-
-
 function Login() {
 
   const navigate = useNavigate();
@@ -89,7 +84,7 @@ function Login() {
   return (
     <>
       <div className='row'>
-        <div className="col-lg-5 vh-100">
+        <div className="col-lg-5 col-sm-12 col-md-12">
           <div id="login-form-wrapper">
             <div id='authentication-form-wrapper'>
               <h1 className='authentication-heading'>{loginComponent ? "Log In " : "Sign Up"}</h1>
@@ -113,7 +108,7 @@ function Login() {
             </div>
           </div>
         </div>
-        <div className="col-lg-7 vh-100 auth-form-right">
+        <div className="col-lg-7 auth-form-right">
           <img src={ease_logo} alt="" />
         </div>
       </div></>

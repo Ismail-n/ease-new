@@ -1,5 +1,6 @@
 #login-form-wrapper {
     display: flex;
+    padding: 30px;
     height: inherit;
     justify-content: center;
     align-items: center;
