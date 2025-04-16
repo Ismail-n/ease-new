@@ -24,7 +24,7 @@ import Homepage from './components/Homepage';
 function App() {
   const isLogin = !!localStorage.getItem('isLogin');
 
-  const [loginState ,setLoginState] = useState(isLogin);
+  const [loginState, setLoginState] = useState(isLogin);
   const loginGlobalStateValue = useSelector((state) => state.counter.value);
 
 
@@ -37,16 +37,16 @@ function App() {
               <>
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="*" element={<Navigate to="/dashboard" replace />} />
+                <Route path="/homepage" element={<Homepage />} />
+                <Route path="/subscription" element={<Payment />} />
+                <Route path="/orgnisation-registration" element={<Orgnisationform />} />
+                <Route path="/welcome-message" element={<WelcomeMessage />} />
               </>
             ) : (
               <>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/privacy-policies" element={<PrivacyPolicies />} />
                 <Route path="/signup" element={<SignupPage />} />
-                <Route path="/subscription" element={<Payment />} />
-                <Route path="/welcome-message" element={<WelcomeMessage />} />
-                <Route path="/orgnisation-registration" element={<Orgnisationform />} />
-                <Route path="/homepage" element={<Homepage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </>
             )}
