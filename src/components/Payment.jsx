@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ease_logo from '../assets/images/ease-icon-new.svg'
 import '../assets/css/global.scss'
+import '../assets/css/responsive.scss'
 import { InputSwitch } from 'primereact/inputswitch';
 
 

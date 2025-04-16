@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../assets/css/global.scss'
 import auth_button_arrow from '../../assets/images/auth-button-arrow.svg'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
+
 
 
 
@@ -14,28 +16,116 @@ function Orgnisationform() {
                             <div className="orgnisation-form-heading">
                                 <h3>Your organization info</h3>
                             </div>
-                            <div className="orgnisation-form-inputs">
-                                <div className="form-group mt-3">
-                                    <input type="text" className='form-control' name="" id="" placeholder='Orgnisation name' />
-                                </div>
-                                <div className="form-group mt-3">
-                                    <input type="text" className='form-control' name="" id="" placeholder='Commercial number' />
-                                </div>
-                                <div className="form-group mt-3">
-                                    <input type="text" className='form-control' name="" id="" placeholder='VAT number' />
-                                </div>
-                                <div className="form-group mt-3">
-                                    <input type="text" className='form-control' name="" id="" placeholder='Phone number' />
-                                </div>
-                                <div className="mt-4 text-center">
-                                    <button className='next-btn'>Next <img className='ps-1' src={auth_button_arrow} alt="" /></button>
-                                </div>
-                            </div>
+                            <Formik
+                                initialValues={{
+                                    org_name: "",
+                                    commr_num: "",
+                                    vat_number: "",
+                                    phone_number: ""
+                                }}
+                                validate={(values) => {
+                                    const errors = {};
+                                    if (!values.org_name) {
+                                        errors.org_name = "Required";
+                                    }
+                                    if (!values.commr_num) {
+                                        errors.commr_num = "Required";
+                                    }
+                                    if (!values.vat_number) {
+                                        errors.vat_number = "Required";
+                                    }
+                                    if (!values.phone_number) {
+                                        errors.phone_number = "Required";
+                                    }
+                                    return errors;
+                                }}
+                                onSubmit={(values, { setSubmitting }) => {
+                                    setTimeout(() => {
+                                        console.log(values)
+                                        setSubmitting(false);
+                                    }, 400);
+                                }}
+                            >
+                                {({ isSubmitting, errors, touched }) => (
+                                    <Form>
+                                        <div className="orgnisation-form-inputs">
+
+                                            {/* Org Name */}
+                                            <div className="form-group mt-3">
+                                                <Field
+                                                    type="text"
+                                                    name="org_name"
+                                                    placeholder="Organisation name"
+                                                    className={`form-control ${touched.org_name && errors.org_name ? 'is-invalid' : ''}`}
+                                                />
+                                                <ErrorMessage
+                                                    name="org_name"
+                                                    component="span"
+                                                    className="error-message"
+                                                />
+                                            </div>
+
+                                            {/* Commercial Number */}
+                                            <div className="form-group mt-3">
+                                                <Field
+                                                    type="text"
+                                                    name="commr_num"
+                                                    placeholder="Commercial number"
+                                                    className={`form-control ${touched.commr_num && errors.commr_num ? 'is-invalid' : ''}`}
+                                                />
+                                                <ErrorMessage
+                                                    name="commr_num"
+                                                    component="span"
+                                                    className="error-message"
+                                                />
+                                            </div>
+
+                                            {/* VAT Number */}
+                                            <div className="form-group mt-3">
+                                                <Field
+                                                    type="text"
+                                                    name="vat_number"
+                                                    placeholder="VAT number"
+                                                    className={`form-control ${touched.vat_number && errors.vat_number ? 'is-invalid' : ''}`}
+                                                />
+                                                <ErrorMessage
+                                                    name="vat_number"
+                                                    component="span"
+                                                    className="error-message"
+                                                />
+                                            </div>
+
+                                            {/* Phone Number */}
+                                            <div className="form-group mt-3">
+                                                <Field
+                                                    type="text"
+                                                    name="phone_number"
+                                                    placeholder="Phone number"
+                                                    className={`form-control ${touched.phone_number && errors.phone_number ? 'is-invalid' : ''}`}
+                                                />
+                                                <ErrorMessage
+                                                    name="phone_number"
+                                                    component="span"
+                                                    className="error-message"
+                                                />
+                                            </div>
+
+                                            {/* Button */}
+                                            <div className="mt-4 text-center">
+                                                <button className="next-btn" disabled={isSubmitting} type="submit">
+                                                    Next <img className="ps-1" src={auth_button_arrow} alt="" />
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </Form>
+                                )}
+                            </Formik>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

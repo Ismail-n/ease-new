@@ -164,6 +164,13 @@
 input:not(:placeholder-shown) {
     font-weight: bold;
 }
+.error-message{
+    color: red;
+    font-size: 16px;
+}
+.form-group{
+    transition: all 0.6s ease-in-out !important;
+}
 
 .text-ease {
     color: rgba(111, 183, 237, 1);
