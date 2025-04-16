@@ -224,10 +224,13 @@ input:not(:placeholder-shown) {
                 text-decoration: none;
                 color: rgba(111, 183, 237, 1);
                 font-weight: bold;
+                align-self: baseline;
             }
 
             :last-child {
                 color: #333 !important;
+                border-radius: 40px;
+                align-self: baseline;
             }
 
         }
@@ -262,6 +265,8 @@ input:not(:placeholder-shown) {
             h2 {
                 text-align: center;
                 font-size: 40px;
+
+                font-size: clamp(20px ,35vw , 40px);
                 color: rgba(111, 183, 237, 1);
             }
 
@@ -378,7 +383,8 @@ input:not(:placeholder-shown) {
             font-weight: bold;
         }
     }
-    .platform-into-video{
+
+    .platform-into-video {
         width: 775px;
         height: 423px;
         background-color: rgb(217 217 217);
@@ -387,7 +393,8 @@ input:not(:placeholder-shown) {
 
 
 }
-.bottom-card-wrapper{
+
+.bottom-card-wrapper {
     top: 100px;
 
     .bottom-card-contents {
@@ -395,17 +402,74 @@ input:not(:placeholder-shown) {
         width: 775px;
         background: #ABDBFF;
         border-radius: 35px;
-        .card-titles{
+
+        .card-title-top {
             line-height: .9;
             color: #fff;
-            p{
-                font-size: 36px;
-                font-weight: bolder;
-            }
-            :last-child{
-                font-size: 21px;
 
+            h2 {
+                font-size: clamp(16px, 5vw, 32px);
+                line-height: 0.8;
+                font-weight: 900 !important;
             }
+        }
+    }
+
+    .card-titles-bottom {
+        .card-bottom-left {
+            // line-height: .7;
+
+            p {
+                text-align: start;
+            }
+            h6{
+                color: #fff;
+            }
+        }
+
+        .card-bottom-right {
+            margin-left: 110px;
+
+            button {
+                display: inline-block;
+                background: white;
+                color: rgba(171, 219, 255, 1);
+                padding: 10px 32px;
+                border-radius: 66px;
+                font-size: 14px;
+                border: none;
+                text-decoration: none;
+                font-weight: 900;
+                transition: background 0.3s ease;
+            }
+        }
+    }
+}
+
+.footer-contents-wrapper {
+    background-color: rgba(171, 219, 255, 1);
+    padding: 20px 40px ;
+
+    .content-left {
+        .footer-story {
+            font-weight: bold;
+            line-height: -2%;
+            color: #fff;
+        }
+    }
+}
+
+.rights {
+    background-color: rgba(52, 56, 57, 1) !important;
+
+    h3 {
+
+        font-size: 16px !important;
+        color: #fff !important;
+        a{
+            text-decoration: none;
+            color: #fff !important;
+
         }
     }
 }
