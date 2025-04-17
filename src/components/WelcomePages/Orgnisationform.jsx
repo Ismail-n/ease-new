@@ -2,11 +2,35 @@ import React, { useState } from 'react'
 import '../../assets/css/global.scss'
 import auth_button_arrow from '../../assets/images/auth-button-arrow.svg'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-
-
-
+import * as Yup from 'yup';
 
 function Orgnisationform() {
+
+    // Login validations shema using Yup
+
+    const OrgnisationRegistrationFormSchema = Yup.object({
+        org_name: Yup.string()
+            .min(3, 'Organisation name must be at least 3 characters')
+            .max(50, 'Organisation name must be at most 50 characters')
+            .required('Organisation name is required'),
+
+        commr_num: Yup.string()
+            .min(8, 'Commercial number must be at least 8 characters')
+            .max(15, 'Commercial number must be at most 15 characters')
+            .required('Commercial number is required'),
+
+        vat_number: Yup.string()
+            .min(8, 'VAT number must be at least 8 characters')
+            .max(15, 'VAT number must be at most 15 characters')
+            .required('VAT number is required'),
+
+        phone_number: Yup.string()
+            .matches(/^[0-9]+$/, 'Phone number must contain only digits')
+            .min(8, 'Phone number must be at least 8 digits')
+            .max(15, 'Phone number must be at most 15 digits')
+            .required('Phone number is required'),
+    });
+
     return (
         <div className='row'>
             <div className="col-lg-12 orgnisation-form-wrapper vh-100">
@@ -23,22 +47,7 @@ function Orgnisationform() {
                                     vat_number: "",
                                     phone_number: ""
                                 }}
-                                validate={(values) => {
-                                    const errors = {};
-                                    if (!values.org_name) {
-                                        errors.org_name = "Required";
-                                    }
-                                    if (!values.commr_num) {
-                                        errors.commr_num = "Required";
-                                    }
-                                    if (!values.vat_number) {
-                                        errors.vat_number = "Required";
-                                    }
-                                    if (!values.phone_number) {
-                                        errors.phone_number = "Required";
-                                    }
-                                    return errors;
-                                }}
+                                validationSchema={OrgnisationRegistrationFormSchema}
                                 onSubmit={(values, { setSubmitting }) => {
                                     setTimeout(() => {
                                         console.log(values)

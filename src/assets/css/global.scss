@@ -166,7 +166,8 @@ input:not(:placeholder-shown) {
 }
 .error-message{
     color: red;
-    font-size: 16px;
+    font-size: 14px;
+    transition: all 3s ease;
 }
 .form-group{
     transition: all 0.6s ease-in-out !important;

@@ -8,7 +8,9 @@ import auth_button_arrow from '../assets/images/auth-button-arrow.svg'
 import { useGoogleLogin } from '@react-oauth/google'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLogin } from '../features/counter/CounterSlice'
-import { jwtDecode } from 'jwt-decode'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
+import * as Yup from 'yup';
+
 
 function Login() {
 
@@ -31,54 +33,147 @@ function Login() {
   const loginUsingCreds = () => {
     localStorage.setItem('isLogin', true);
     dispatch(setLogin(true));
-    // navigate('/dashboard');
   };
+
+  // Login validations shema using Yup
+  const LoginValidationSchema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .required('Password is required')
+  });
+
+  const SignUpValidationSchema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .required('Password is required'),
+
+    first_name: Yup.string()
+      .min(3, 'First name must be at least 3 characters')
+      .required('First name is required'),
+
+    last_name: Yup.string()
+      .min(8, 'Last name must be at least 3 characters')
+      .required('Last name is required'),
+  });
+
 
   const LoginPageFormFields = () => {
     return (
-      <>
-        <div className="authentication-form login-form mt-4">
-          <div className="form-group"><input type="text" className="form-control" id="" placeholder="" /></div>
-          <div className="form-group mt-3"><input type="password" className="form-control" id="" placeholder="" /></div>
-          <div className="form-check mt-3"><input type="checkbox" className="form-check-input" id="check-remember-me" />
-            <label className="form-check-label" htmlFor="check-remember-me">Check me out</label>
-          </div>
-          <button onClick={() => loginUsingCreds()}
-            className='btn auth-btn btn-primary auth-submit-btn'>Sign in <img src={auth_button_arrow} alt="" />
-          </button>
-        </div>
-        <div className="authentication-form-bottom mt-4 text-center">
-          <span className='account-bottom-statement mt-4'>Don't have an account?</span>
-          {/* <NavLink>Sign Up</NavLink> */}
-          <button className='conditional-btn' onClick={() => setLoginComponent(false)}> Sign Up.</button>
-        </div>
-      </>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={LoginValidationSchema}
+        onSubmit={(values) => {
+          loginUsingCreds(); // Your login logic
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form className="authentication-form login-form mt-4">
+            <div className="form-group">
+              <Field name="email" type="text"
+                className={`form-control ${touched.email && errors.email ? 'is-invalid' : ''}`}
+                placeholder="Email" />
+              <ErrorMessage name="email" component="div" className="text-danger" />
+            </div>
 
+            <div className="form-group mt-3">
+              <Field name="password" type="password"
+                className={`form-control ${touched.password && errors.password ? 'is-invalid' : ''}`}
+                placeholder="Password" />
+              <ErrorMessage name="password" component="div" className="text-danger" />
+            </div>
+            <div className="form-check mt-3">
+              <input type="checkbox" className="form-check-input" id="check-remember-me" />
+              <label className="form-check-label" htmlFor="check-remember-me">Check me out</label>
+            </div>
+
+            <button type="submit" className="btn auth-btn btn-primary auth-submit-btn">
+              Sign in <img src={auth_button_arrow} alt="" />
+            </button>
+
+            <div className="authentication-form-bottom mt-4 text-center">
+              <span className="account-bottom-statement mt-4">Don't have an account?</span>
+              <button className="conditional-btn" onClick={() => setLoginComponent(false)}> Sign Up.</button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     );
   };
+
+
   const SignupPageFormFields = () => {
     return (
-      <>
-        <div className="authentication-form login-form mt-4">
-          <div className="form-group"><input type="text" className="form-control" id="" placeholder="Email address" /></div>
-          <div className="form-group mt-3"><input type="password" className="form-control" id="" placeholder="Password" /></div>
-          <div className="form-group mt-3"><input type="password" className="form-control" id="" placeholder="First name" /></div>
-          <div className="form-group mt-3"><input type="password" className="form-control" id="" placeholder="Last name" /></div>
-          <div className="form-check mt-3"><input type="checkbox" className="form-check-input" id="agree-terms" />
-            <label className="form-check-label" htmlFor="agree-terms">By signing up, i agree to the T&C</label>
-          </div>
-          <button
-            className='btn auth-btn btn-primary auth-submit-btn'>Sign up <img src={auth_button_arrow} alt="" />
-          </button>
-        </div>
-        <div className="authentication-form-bottom mt-4 text-center">
-          <span className='account-bottom-statement mt-4'> Already have an account ?</span>
-          {/* <NavLink>Sign Up</NavLink> */}
-          <button className='conditional-btn' onClick={() => setLoginComponent(true)}>  Sign in.</button>
-        </div>
-      </>
-    )
+      <Formik
+        initialValues={{ email: '', password: '', first_name: '', last_name: '', agree: false }}
+        validationSchema={SignUpValidationSchema}
+        onSubmit={(values) => {
+          console.log('Signup form submitted:', values);
+          // Your signup logic here
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form className="authentication-form login-form mt-4">
+            <div className="form-group">
+              <Field name="email" type="text"
+                className={`form-control ${touched.email && errors.email ? 'is-invalid' : ''}`}
+                placeholder="Email address" />
+              <ErrorMessage name="email" component="div" className="text-danger" />
+            </div>
+
+            <div className="form-group mt-3">
+              <Field name="password" type="password"
+                className={`form-control ${touched.password &&  errors.password ? 'is-invalid' : ''}`}
+                placeholder="Password" />
+              <ErrorMessage name="password" component="div" className="text-danger" />
+            </div>
+
+            <div className="form-group mt-3">
+              <Field name="first_name" type="text"
+                className={`form-control ${touched.first_name &&  errors.first_name ? 'is-invalid' : ''}`}
+                placeholder="First name" />
+              <ErrorMessage name="first_name" component="div" className="text-danger" />
+            </div>
+
+            <div className="form-group mt-3">
+              <Field name="last_name" type="text"
+                className={`form-control ${touched.last_name &&  errors.last_name ? 'is-invalid' : ''}`}
+                placeholder="Last name" />
+              <ErrorMessage name="last_name" component="div" className="text-danger" />
+            </div>
+
+            <div className="form-check mt-3">
+              <Field name="agree" type="checkbox"
+                className="form-check-input"
+                id="agree-terms" />
+              <label className="form-check-label" htmlFor="agree-terms">
+                By signing up, I agree to the T&C
+              </label>
+              <ErrorMessage name="agree" component="div" className="text-danger" />
+            </div>
+
+            <button type="submit" className="btn auth-btn btn-primary auth-submit-btn">
+              Sign up <img src={auth_button_arrow} alt="" />
+            </button>
+
+            <div className="authentication-form-bottom mt-4 text-center">
+              <span className="account-bottom-statement mt-4">Already have an account?</span>
+              <button className="conditional-btn" onClick={() => setLoginComponent(true)}> Sign in.</button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    );
   };
+
+
 
 
   return (
