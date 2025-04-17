@@ -179,6 +179,22 @@ input:not(:placeholder-shown) {
     font-size: clamp(20px ,35vw , 36px);
 
 }
+.switch_icon{
+    width: 46px !important;
+    height: 26px !important;
+    .css-161ms7l-MuiButtonBase-root-MuiSwitch-switchBase{
+        padding: 5px !important;
+    }
+    .css-17jyosd-MuiSwitch-thumb{
+        width: 15px;
+        height: 15px;
+    }
+    .css-tj8d99-MuiSwitch-track{
+        border-radius: 15px !important;
+        background-color: rgba(217, 217, 217, 1) !important;
+    }
+
+}
 
 // ============================== Global classes ==============================
 
@@ -294,7 +310,9 @@ input:not(:placeholder-shown) {
         }
 
         .plan-picking-container {
-            .plan-type-wrapper {}
+            .plan-type-wrapper {
+
+            }
 
             .plan-saving-title {
                 p {

@@ -9,6 +9,8 @@ import icon_user from '../assets/images/user_icon.svg'
 import { NavLink } from 'react-router'
 import '../assets/css/global.scss'
 import '../assets/css/responsive.scss'
+import { Button, Switch } from '@mui/material'
+
 
 
 
@@ -28,27 +30,27 @@ function Homepage() {
                             <p><b>that suits your business size</b></p>
                         </div>
                         <div className="plan-picking-container mt-4">
-                            <div className="plan-type-wrapper d-flex justify-content-around">
-                                <span>Monthly</span>
-                                <span></span>
-                                <span>Annually</span>
+                            <div className="plan-type-wrapper d-flex justify-content-around align-items-baseline">
+                                <span className='align-self-center'>Monthly</span>
+                                <Switch className='p-0 switch_icon' />
+                                <span className='align-self-center'>Annually</span>
                             </div>
                             <div className="plan-saving-title text-center mt-2">
                                 <p><b>Save 20%<span> on annual plan</span></b> </p>
                             </div>
                             <div className="plan-card p-5">
-                                <div class="price-container">
-                                    <span class="price">50</span>
-                                    <span class="currency">SR</span>
-                                    <span class="per-month">/ Pre month</span>
+                                <div className="price-container">
+                                    <span className="price">50</span>
+                                    <span className="currency">SR</span>
+                                    <span className="per-month">/ Pre month</span>
                                 </div>
                                 <div className="screen-counter d-flex ms-4 mt-4">
                                     <div className="check-icon">
                                         <img src={check_icon} alt="" srcset="" />
                                     </div>
                                     <div className="screens-counts ms-4 d-flex">
-                                        <span class="feature-title">Screen</span>
-                                        <span class="feature-sub">per month</span>
+                                        <span className="feature-title">Screen</span>
+                                        <span className="feature-sub">per month</span>
                                     </div>
                                 </div>
                                 <div className="plan-picker-btn mt-4 text-center">

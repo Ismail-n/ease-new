@@ -80,14 +80,14 @@ function Login() {
               <Field name="email" type="text"
                 className={`form-control ${touched.email && errors.email ? 'is-invalid' : ''}`}
                 placeholder="Email" />
-              <ErrorMessage name="email" component="div" className="text-danger" />
+              <ErrorMessage name="email" component="div" className="error-message" />
             </div>
 
             <div className="form-group mt-3">
               <Field name="password" type="password"
                 className={`form-control ${touched.password && errors.password ? 'is-invalid' : ''}`}
                 placeholder="Password" />
-              <ErrorMessage name="password" component="div" className="text-danger" />
+              <ErrorMessage name="password" component="div" className="error-message" />
             </div>
             <div className="form-check mt-3">
               <input type="checkbox" className="form-check-input" id="check-remember-me" />
@@ -125,28 +125,28 @@ function Login() {
               <Field name="email" type="text"
                 className={`form-control ${touched.email && errors.email ? 'is-invalid' : ''}`}
                 placeholder="Email address" />
-              <ErrorMessage name="email" component="div" className="text-danger" />
+              <ErrorMessage name="email" component="div" className="error-message" />
             </div>
 
             <div className="form-group mt-3">
               <Field name="password" type="password"
                 className={`form-control ${touched.password &&  errors.password ? 'is-invalid' : ''}`}
                 placeholder="Password" />
-              <ErrorMessage name="password" component="div" className="text-danger" />
+              <ErrorMessage name="password" component="div" className="error-message" />
             </div>
 
             <div className="form-group mt-3">
               <Field name="first_name" type="text"
                 className={`form-control ${touched.first_name &&  errors.first_name ? 'is-invalid' : ''}`}
                 placeholder="First name" />
-              <ErrorMessage name="first_name" component="div" className="text-danger" />
+              <ErrorMessage name="first_name" component="div" className="error-message" />
             </div>
 
             <div className="form-group mt-3">
               <Field name="last_name" type="text"
                 className={`form-control ${touched.last_name &&  errors.last_name ? 'is-invalid' : ''}`}
                 placeholder="Last name" />
-              <ErrorMessage name="last_name" component="div" className="text-danger" />
+              <ErrorMessage name="last_name" component="div" className="error-message" />
             </div>
 
             <div className="form-check mt-3">
@@ -156,7 +156,7 @@ function Login() {
               <label className="form-check-label" htmlFor="agree-terms">
                 By signing up, I agree to the T&C
               </label>
-              <ErrorMessage name="agree" component="div" className="text-danger" />
+              <ErrorMessage name="agree" component="div" className="error-message" />
             </div>
 
             <button type="submit" className="btn auth-btn btn-primary auth-submit-btn">

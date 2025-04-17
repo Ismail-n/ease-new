@@ -11,15 +11,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.2",
     "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^2.6.1",
-    "@tap-payments/benefit-pay-button": "^1.0.21",
     "bootstrap": "^5.3.5",
     "formik": "^2.4.6",
     "jwt-decode": "^4.0.0",
-    "primeflex": "^4.0.0",
-    "primeicons": "^7.0.0",
-    "primereact": "^10.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",

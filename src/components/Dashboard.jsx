@@ -1,4 +1,3 @@
-import { BenefitPayButton, Edges, Locale } from '@tap-payments/benefit-pay-button'
 import React, { useState } from 'react'
 import google_icon from '../assets/images/google-icon.svg'
 import { useDispatch } from 'react-redux';

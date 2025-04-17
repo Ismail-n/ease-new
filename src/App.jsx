@@ -17,10 +17,6 @@ import WelcomeMessage from './components/WelcomePages/WelcomeMessage';
 import Orgnisationform from './components/WelcomePages/Orgnisationform';
 import Homepage from './components/Homepage';
 
-
-
-
-
 function App() {
   const isLogin = !!localStorage.getItem('isLogin');
 
